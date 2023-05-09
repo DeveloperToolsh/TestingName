@@ -1,0 +1,20 @@
+pip install gspread oauth2client
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+from datetime import date, timedelta
+def update_calendar(start_date, end_date):
+    creds = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_FILE, SCOPE)
+    client = gspread.authorize(creds)
+    spreadsheet = client.open(Calander Instance (2023)')  
+    sheet = Calander Instance (2023)  
+    current_date = start_date
+    delta = timedelta(days=1)
+    while current_date <= end_date:
+        cell_value = current_date.strftime("%Y-%m-%d")
+        cell = sheet.find(cell_value)
+        sheet.update_cell(cell.row, cell.col, "Event")
+        current_date += delta
+start_date = date(2023, 5, 8) 
+end_date = date(2023, 12, 31)  
+
+update_calendar(start_date, end_date)
